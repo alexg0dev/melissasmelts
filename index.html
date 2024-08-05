@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melissa's Melts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
+
+        .hero-section {
+            background: linear-gradient(to right, #ffebee, #ffe0e6);
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section h1 {
+            animation: fadeIn 2s ease-in-out;
+            font-size: 3.5rem;
+            color: #ff4d4d;
+        }
+
+        .hero-section p {
+            margin-top: 10px;
+            font-size: 1.5rem;
+            color: #ff6b6b;
+        }
+
+        .hero-section button {
+            margin-top: 20px;
+            padding: 12px 24px;
+            font-size: 1rem;
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero-section button:hover {
+            background-color: #ff4d4d;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .floating-bubbles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 182, 193, 0.6);
+            animation: floatUp 20s infinite ease-in-out;
+        }
+
+        .bubble.small {
+            width: 40px;
+            height: 40px;
+        }
+
+        .bubble.medium {
+            width: 80px;
+            height: 80px;
+        }
+
+        .bubble.large {
+            width: 120px;
+            height: 120px;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-1000px);
+                opacity: 0;
+            }
+        }
+
+        .header-links a {
+            position: relative;
+            display: inline-block;
+            padding: 10px 15px;
+            transition: color 0.3s ease-in-out;
+            color: white;
+        }
+
+        .header-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: white;
+            transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+        }
+
+        .header-links a:hover::before {
+            width: 100%;
+            left: 0;
+        }
+
+        .rating-card {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            max-width: 600px;
+            margin: 20px auto;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .rating-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .rating-card svg {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+            fill: #ff6b6b;
+        }
+
+        .rating-card .rating-text {
+            flex: 1;
+        }
+
+        .rating-card .star-rating {
+            color: gold;
+            margin-bottom: 5px;
+        }
+
+        .rating-card p {
+            margin: 0;
+        }
+
+        .product-card {
+            border-radius: 10px;
+            padding: 15px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-button {
+            background-color: #ff6b6b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .custom-button:hover {
+            background-color: #ff4d4d;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            border-radius: 9999px;
+            padding: 5px 10px;
+            background-color: white;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .search-bar input {
+            border: none;
+            outline: none;
+            padding: 5px 10px;
+            font-size: 1rem;
+            border-radius: 9999px;
+            flex-grow: 1;
+            color: #555;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        .search-bar button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1.25rem;
+            color: #ff6b6b;
+            padding: 5px 10px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .search-bar button:hover {
+            background-color: #ffe0e6;
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin: 20px auto;
+            max-width: 80%;
+        }
+
+        .flex-container img {
+            height: 64px;
+            object-fit: contain;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .hero-section p {
+                font-size: 1rem;
+            }
+
+            .hero-section button {
+                font-size: 0.875rem;
+                padding: 8px 16px;
+            }
+
+            .rating-card svg {
+                width: 40px;
+                height: 40px;
+            }
+
+            .rating-card .rating-text {
+                font-size: 0.875rem;
+            }
+
+            .flex-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .flex-container img {
+                height: 48px;
+            }
+        }
+
+        #map {
+            width: 100%;
+            height: 400px;
+            border: 2px solid #ff6b6b;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .underline-link {
+            color: #ff6b6b;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .underline-link:hover {
+            color: #ff4d4d;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-pink-500 to-red-500 text-white p-4 flex items-center justify-between shadow-md z-10 relative">
+        <div class="flex items-center space-x-4">
+            <img src="images/logo.png" alt="Melissa's Melts Logo" class="h-10">
+            <h1 class="text-2xl font-bold">Melissa's Melts</h1>
+        </div>
+        <nav class="header-links space-x-4">
+            <a href="contact.html">Contact</a>
+            <a href="about.html">About Us</a>
+            <a href="products.html">Products</a>
+            <a href="notice.html">Notice</a>
+        </nav>
+        <div class="flex items-center space-x-4">
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <button><i class="fas fa-user"></i></button>
+            <button class="cart"><i class="fas fa-shopping-cart"></i></button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section relative">
+        <div class="floating-bubbles">
+            <div class="bubble small" style="top: 20%; left: 5%;"></div>
+            <div class="bubble medium" style="top: 50%; left: 10%;"></div>
+            <div class="bubble large" style="top: 80%; left: 15%;"></div>
+            <div class="bubble small" style="top: 30%; right: 5%;"></div>
+            <div class="bubble medium" style="top: 60%; right: 10%;"></div>
+            <div class="bubble large" style="top: 90%; right: 15%;"></div>
+            <div class="bubble small" style="top: 20%; left: 20%;"></div>
+            <div class="bubble medium" style="top: 40%; left: 30%;"></div>
+            <div class="bubble large" style="top: 60%; left: 40%;"></div>
+            <div class="bubble small" style="top: 80%; right: 20%;"></div>
+            <div class="bubble medium" style="top: 70%; right: 30%;"></div>
+            <div class="bubble large" style="top: 90%; right: 40%;"></div>
+        </div>
+        <h1 class="text-5xl font-bold relative z-10">Welcome to Melissa's Melts</h1>
+        <p class="text-xl mt-2 relative z-10">Discover our range of handcrafted, natural soaps and melts.</p>
+        <button class="custom-button mt-4 relative z-10">View All Products</button>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="p-10" id="products">
+        <h2 class="text-3xl font-bold mb-8 text-center">Featured Products</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Example product -->
+            <div class="product-card hover:shadow-lg transition-transform duration-300 ease-in-out">
+                <img src="images/sponge.png" alt="Soap Filled Exfoliating Sponge" class="w-full h-48 object-cover rounded-lg">
+                <h3 class="text-xl font-bold mt-4">Soap Filled Exfoliating Sponge</h3>
+                <p class="mt-2 text-pink-500 font-semibold">In over 30 scents</p>
+                <p class="mt-2">£10.00</p>
+                <button class="custom-button mt-4">Buy Now</button>
+            </div>
+            <div class="product-card hover:shadow-lg transition-transform duration-300 ease-in-out">
+                <img src="images/scrub.png" alt="Massage Soap" class="w-full h-48 object-cover rounded-lg">
+                <h3 class="text-xl font-bold mt-4">Massage Soap</h3>
+                <p class="mt-2 text-pink-500 font-semibold">20% discount if 2 are bought</p>
+                <p class="mt-2">£12.00</p>
+                <button class="custom-button mt-4">Buy Now</button>
+            </div>
+            <div class="product-card hover:shadow-lg transition-transform duration-300 ease-in-out">
+                <img src="images/spray.png" alt="Room Sprays" class="w-full h-48 object-cover rounded-lg">
+                <h3 class="text-xl font-bold mt-4">Room Sprays</h3>
+                <p class="mt-2 text-pink-500 font-semibold">Almost running out</p>
+                <p class="mt-2">£15.00</p>
+                <button class="custom-button mt-4">Buy Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ingredients Section -->
+    <section class="p-10 bg-gray-100">
+        <h2 class="text-3xl font-bold mb-8 text-center">Ingredients</h2>
+        <p class="text-lg leading-7 text-center max-w-4xl mx-auto">Vegan, cruelty-free, and hand-crafted in the UK, our soaps and melts are made using the finest natural ingredients, all ethically sourced. Our luxurious range is made with pure essential oils to create uplifting and nurturing scents. Our products are perfect for all skin types and ages, making them a beautiful addition to your daily routine. Browse our shop and find the perfect product for you.</p>
+        <div class="mt-6 text-center">
+            <p class="text-lg font-semibold">Free Delivery on orders over £50. UK made and delivered.</p>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="p-10 bg-white">
+        <h2 class="text-3xl font-bold mb-8 text-center">Our Story</h2>
+        <div class="flex flex-col md:flex-row items-center max-w-4xl mx-auto">
+            <p class="flex-1 text-lg leading-7">Melissa's Melts started in 2021 in Whitworth, Rochdale, as a small family business dedicated to crafting high-quality, handmade soaps and melts. Our mission is to provide luxurious, natural products made with the finest ingredients. We believe in sustainability and ethical sourcing, ensuring that our products are good for your skin and the planet. Join us in celebrating the art of natural soap making, crafted with love and care.</p>
+            <img src="images/rochdale.avif" alt="Our Story Image" class="w-1/2 h-auto ml-4 rounded-lg shadow-md">
+        </div>
+    </section>
+
+    <!-- Ratings and Slideshow Section -->
+    <section class="p-10 bg-gray-100">
+        <h2 class="text-3xl font-bold mb-8 text-center">Customer Ratings</h2>
+        <div id="reviews-container" class="relative overflow-hidden max-w-3xl mx-auto">
+            <div id="reviews" class="flex transition-transform duration-500 ease-in-out">
+                <!-- Reviews will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Check Out Our Bundles Section -->
+    <section class="p-10 bg-white">
+        <h2 class="text-3xl font-bold mb-8 text-center">Check Out Our Bundles</h2>
+        <p class="text-lg leading-7 text-center max-w-4xl mx-auto">Shop our beautiful gifts for every budget. If you’re looking for the perfect present, then take a look at our wonderful selection of natural soap and beauty gifts. This collection has everything, from stunning Luxury Gift Hampers and Pamper Packs, to aromatic room candles and delightful gifts for your loved ones. Browse our shop now – we have something for everyone.</p>
+        <div class="text-center mt-6">
+            <button class="custom-button mt-4">Browse Our Gifts Section</button>
+        </div>
+    </section>
+
+    <!-- Google Maps Section -->
+    <section class="p-10 bg-gray-100">
+        <h2 class="text-3xl font-bold mb-8 text-center">Our Location</h2>
+        <div class="flex flex-col items-center">
+            <div id="map-container" class="w-full max-w-3xl mb-4">
+                <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d94782.42360144659!2d-2.2074641672028893!3d53.681548246335075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bb3b89b9d5ff5%3A0xd2c85bfc61f8e53f!2sWhitworth%2C%20Rochdale%20OL12%2C%20UK!5e0!3m2!1sen!2s!4v1678232196765!5m2!1sen!2s" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <p class="text-center mt-4">Our sponges come all the way from a village in Whitworth, OL12, Rochdale.</p>
+            <a href="https://www.google.com/maps/place/Whitworth,+Rochdale+OL12,+UK" target="_blank" class="underline-link mt-2">View on Google Maps</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-pink-500 to-red-500 text-white p-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="font-bold text-lg mb-2">About Us</h3>
+                <ul>
+                    <li><a href="our-story.html" class="hover:underline">Our Story</a></li>
+                    <li><a href="our-mission.html" class="hover:underline">Our Mission</a></li>
+                    <li><a href="sustainability.html" class="hover:underline">Sustainability</a></li>
+                    <li><a href="testimonials.html" class="hover:underline">Customer Testimonials</a></li>
+                    <li><a href="community.html" class="hover:underline">Community Engagement</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold text-lg mb-2">Customer Service</h3>
+                <ul>
+                    <li><a href="contact.html" class="hover:underline">Contact</a></li>
+                    <li><a href="faqs.html" class="hover:underline">FAQs</a></li>
+                    <li><a href="shipping.html" class="hover:underline">Shipping Information</a></li>
+                    <li><a href="returns.html" class="hover:underline">Returns & Exchanges</a></li>
+                    <li><a href="care-tips.html" class="hover:underline">Product Care Tips</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold text-lg mb-2">Other Information</h3>
+                <ul>
+                    <li><a href="terms-conditions.html" class="hover:underline">Terms & Conditions</a></li>
+                    <li><a href="wholesale-terms.html" class="hover:underline">Wholesale Terms</a></li>
+                    <li><a href="privacy-policy.html" class="hover:underline">Privacy Policy</a></li>
+                    <li><a href="careers.html" class="hover:underline">Careers</a></li>
+                    <li><a href="gift-cards.html" class="hover:underline">Gift Cards</a></li>
+                </ul>
+                <div class="social-icons mt-4 text-center">
+                    <a href="https://facebook.com" target="_blank" class="hover:underline"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="hover:underline"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank" class="hover:underline"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com" target="_blank" class="hover:underline"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://youtube.com" target="_blank" class="hover:underline"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <p class="text-center mt-4">Copyright 2024 Melissa's Melts. Reg. Company Number: 12345678. VAT Number: 87654321.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Dummy reviews data
+        const reviews = [
+            { name: 'John Smith', rating: 5, text: 'Amazing product, will definitely buy again!', svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>' },
+            { name: 'Emily Brown', rating: 4, text: 'Great quality, but a bit pricey.', svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>' },
+            { name: 'David Wilson', rating: 5, text: 'Perfect for my sensitive skin.', svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>' }
+        ];
+
+        let currentIndex = 0;
+
+        function renderReviews() {
+            const reviewsContainer = document.getElementById('reviews');
+            reviews.forEach(review => {
+                const reviewCard = document.createElement('div');
+                reviewCard.classList.add('rating-card', 'w-full');
+
+                reviewCard.innerHTML = `
+                    <div class="svg-container">${review.svg}</div>
+                    <div class="rating-text">
+                        <p class="font-bold">${review.name}:</p>
+                        <p class="star-rating">${'★'.repeat(review.rating)}</p>
+                        <p>${review.text}</p>
+                    </div>
+                `;
+
+                reviewsContainer.appendChild(reviewCard);
+            });
+        }
+
+        function autoScrollReviews() {
+            const reviewsContainer = document.getElementById('reviews');
+            const totalReviews = reviews.length;
+
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % totalReviews;
+                reviewsContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }, 4000);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderReviews();
+            autoScrollReviews();
+        });
+    </script>
+</body>
+
+</html>
