@@ -274,16 +274,16 @@
         }
 
         .online-stores img {
-            width: 100px;
+            width: 150px;
             height: auto;
-            margin: 0 10px;
+            margin: 0 20px;
         }
 
         .online-stores {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px;
+            gap: 40px;
         }
 
         .hamburger {
@@ -336,18 +336,16 @@
         }
     </style>
     <script>
+        if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+            window.location.href = "index1.html";
+        }
+    </script>
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('hamburger').addEventListener('click', function() {
                 document.getElementById('mobile-menu').classList.toggle('hidden');
             });
         });
-
-        if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
-            alert("Mobile-Supported");
-            window.location.href = "index1.html";
-        } else {
-            alert("PC-Supported");
-        }
     </script>
 </head>
 
