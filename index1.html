@@ -287,7 +287,62 @@
             gap: 10px;
             flex-wrap: wrap;
         }
+
+        .hamburger {
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #ff6b6b;
+            z-index: 10;
+        }
+
+        .mobile-menu a {
+            padding: 10px 15px;
+            color: white;
+            text-decoration: none;
+            width: 100%;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #ff4d4d;
+        }
+
+        @media (max-width: 768px) {
+            .header-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+        }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('hamburger').addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.toggle('hidden');
+            });
+        });
+    </script>
 </head>
 
 <body class="bg-white text-gray-800">
@@ -297,23 +352,25 @@
             <img src="images/logo.png" alt="Melissa's Melts Logo" class="h-8">
             <h1 class="text-xl font-bold">Melissa's Melts</h1>
         </div>
-        <div class="flex flex-col space-y-2">
-            <nav class="header-links space-x-4">
-                <a href="contact.html">Contact</a>
-                <a href="about.html">About Us</a>
-                <a href="products.html">Products</a>
-                <a href="notice.html">Notice</a>
-            </nav>
-            <div class="flex items-center space-x-4">
-                <div class="search-bar">
-                    <input type="text" placeholder="Search...">
-                    <button><i class="fas fa-search"></i></button>
-                </div>
-                <button><i class="fas fa-user"></i></button>
-                <button class="cart"><i class="fas fa-shopping-cart"></i></button>
+        <div class="flex items-center space-x-4">
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <button class="cart"><i class="fas fa-shopping-cart"></i></button>
+            <div id="hamburger" class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
         </div>
     </header>
+    <div id="mobile-menu" class="mobile-menu hidden">
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About Us</a>
+        <a href="products.html">Products</a>
+        <a href="notice.html">Notice</a>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero-section relative">
