@@ -343,8 +343,18 @@
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('hamburger').addEventListener('click', function() {
-                document.getElementById('mobile-menu').classList.toggle('hidden');
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const searchBar = document.getElementById('search-bar');
+            
+            hamburger.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    mobileMenu.classList.add('hidden');
+                }
             });
         });
     </script>
@@ -365,6 +375,7 @@
         <button class="cart-icon"><i class="fas fa-shopping-cart"></i></button>
     </header>
     <div id="mobile-menu" class="mobile-menu hidden">
+        <a href="index.html">Home</a>
         <a href="contact.html">Contact</a>
         <a href="about.html">About Us</a>
         <a href="products.html">Products</a>
@@ -373,7 +384,7 @@
         <a href="shipping.html">Shipping Information</a>
         <a href="returns.html">Returns & Exchanges</a>
     </div>
-    <div class="search-bar mt-2 mx-4">
+    <div id="search-bar" class="search-bar mt-2 mx-4">
         <input type="text" placeholder="Search...">
         <button><i class="fas fa-search"></i></button>
     </div>
