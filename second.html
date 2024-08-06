@@ -25,20 +25,20 @@
 
         .hero-section h1 {
             animation: fadeIn 2s ease-in-out;
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: #ff4d4d;
         }
 
         .hero-section p {
             margin-top: 10px;
-            font-size: 1rem;
+            font-size: 1.25rem;
             color: #ff6b6b;
         }
 
         .hero-section button {
             margin-top: 20px;
-            padding: 8px 16px;
-            font-size: 0.875rem;
+            padding: 12px 24px;
+            font-size: 1rem;
             background-color: #ff6b6b;
             color: white;
             border: none;
@@ -105,28 +105,100 @@
             }
         }
 
-        .header-links a {
+        .header {
+            background: linear-gradient(to right, #ff6b6b, #ff4d4d);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             position: relative;
-            display: inline-block;
-            padding: 10px 15px;
-            transition: color 0.3s ease-in-out;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 20;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 4px 0;
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            z-index: 20;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .cart-icon {
+            font-size: 1.5rem;
             color: white;
+            cursor: pointer;
+            z-index: 20;
         }
 
-        .header-links a::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
+        .search-bar {
+            display: flex;
+            align-items: center;
+            padding: 5px 10px;
             background-color: white;
-            transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+            border-radius: 9999px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+            width: 100%;
         }
 
-        .header-links a:hover::before {
-            width: 100%;
+        .search-bar input {
+            border: none;
+            outline: none;
+            padding: 5px 10px;
+            font-size: 1rem;
+            flex-grow: 1;
+        }
+
+        .search-bar button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1.25rem;
+            color: #ff6b6b;
+            padding: 5px 10px;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            top: 100%;
             left: 0;
+            width: 100%;
+            background-color: #ff6b6b;
+            z-index: 10;
+            padding: 10px 0;
+        }
+
+        .mobile-menu a {
+            padding: 10px 15px;
+            color: white;
+            text-decoration: none;
+            width: 100%;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #ff4d4d;
         }
 
         .rating-card {
@@ -134,7 +206,7 @@
             flex-direction: column;
             align-items: flex-start;
             background: #fff;
-            padding: 15px;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
@@ -147,8 +219,8 @@
         }
 
         .rating-card .user-icon {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             fill: #ff6b6b;
             margin-bottom: 10px;
         }
@@ -167,7 +239,7 @@
         }
 
         .rating-card img {
-            width: 40px;
+            width: 50px;
             margin-top: 10px;
         }
 
@@ -198,66 +270,9 @@
             background-color: #ff4d4d;
         }
 
-        .search-bar {
-            display: flex;
-            align-items: center;
-            border-radius: 9999px;
-            padding: 5px 10px;
-            background-color: white;
-            transition: all 0.3s ease-in-out;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-
-        .search-bar input {
-            border: none;
-            outline: none;
-            padding: 5px 10px;
-            font-size: 0.875rem;
-            border-radius: 9999px;
-            flex-grow: 1;
-            color: #555;
-            transition: width 0.3s ease-in-out;
-        }
-
-        .search-bar input:focus {
-            outline: none;
-            box-shadow: none;
-        }
-
-        .search-bar button {
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            color: #ff6b6b;
-            padding: 5px 10px;
-            border-radius: 50%;
-            transition: background-color 0.3s ease-in-out;
-        }
-
-        .search-bar button:hover {
-            background-color: #ffe0e6;
-        }
-
-        .flex-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin: 20px auto;
-            max-width: 90%;
-            flex-wrap: wrap;
-        }
-
-        .flex-container img {
-            height: 48px;
-            object-fit: contain;
-        }
-
         #map-container {
             width: 100%;
-            max-width: 100%;
+            max-width: 700px;
             margin: auto;
             border: 3px solid #ff6b6b;
             border-radius: 10px;
@@ -275,65 +290,55 @@
         }
 
         .online-stores img {
-            width: 80px;
+            width: 100px;
             height: auto;
-            margin: 0 5px;
+            margin: 0 10px;
         }
 
         .online-stores {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
+            gap: 20px;
         }
 
-        .hamburger {
-            display: inline-block;
-            cursor: pointer;
+        .footer {
+            background: linear-gradient(to right, #ff6b6b, #ff4d4d);
+            color: white;
+            padding: 20px;
         }
 
-        .hamburger div {
-            width: 25px;
-            height: 3px;
-            background-color: #fff;
-            margin: 5px 0;
-            transition: all 0.3s ease;
+        .footer h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
         }
 
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background-color: #ff6b6b;
-            z-index: 10;
+        .footer ul {
+            list-style: none;
+            padding: 0;
         }
 
-        .mobile-menu a {
-            padding: 10px 15px;
+        .footer ul li {
+            margin-bottom: 5px;
+        }
+
+        .footer ul li a {
             color: white;
             text-decoration: none;
-            width: 100%;
-            text-align: center;
-            transition: background-color 0.3s ease;
         }
 
-        .mobile-menu a:hover {
-            background-color: #ff4d4d;
+        .footer ul li a:hover {
+            text-decoration: underline;
         }
 
-        @media (max-width: 768px) {
-            .header-links {
-                display: none;
-            }
+        .footer .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+        }
 
-            .mobile-menu {
-                display: flex;
-            }
+        .footer .social-icons a:hover {
+            color: #ff4d4d;
         }
     </style>
     <script>
@@ -347,33 +352,34 @@
 
 <body class="bg-white text-gray-800">
     <!-- Header -->
-    <header class="bg-gradient-to-r from-pink-500 to-red-500 text-white p-4 flex items-center justify-between shadow-md z-10 relative">
-        <div class="flex items-center space-x-4">
-            <img src="images/logo.png" alt="Melissa's Melts Logo" class="h-8">
-            <h1 class="text-xl font-bold">Melissa's Melts</h1>
+    <header class="header">
+        <div id="hamburger" class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-        <div class="flex items-center space-x-4">
-            <div class="search-bar">
-                <input type="text" placeholder="Search...">
-                <button><i class="fas fa-search"></i></button>
-            </div>
-            <button class="cart"><i class="fas fa-shopping-cart"></i></button>
-            <div id="hamburger" class="hamburger">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
+        <div class="logo">
+            <img src="images/logo.png" alt="Melissa's Melts Logo">
+            <h1>Melissa's Melts</h1>
         </div>
+        <button class="cart-icon"><i class="fas fa-shopping-cart"></i></button>
     </header>
     <div id="mobile-menu" class="mobile-menu hidden">
         <a href="contact.html">Contact</a>
         <a href="about.html">About Us</a>
         <a href="products.html">Products</a>
         <a href="notice.html">Notice</a>
+        <a href="faqs.html">FAQs</a>
+        <a href="shipping.html">Shipping Information</a>
+        <a href="returns.html">Returns & Exchanges</a>
+    </div>
+    <div class="search-bar mt-2 mx-4">
+        <input type="text" placeholder="Search...">
+        <button><i class="fas fa-search"></i></button>
     </div>
 
     <!-- Hero Section -->
-    <section class="hero-section relative">
+    <section class="hero-section relative mt-6">
         <div class="floating-bubbles">
             <div class="bubble small" style="top: 20%; left: 5%;"></div>
             <div class="bubble medium" style="top: 50%; left: 10%;"></div>
@@ -388,15 +394,15 @@
             <div class="bubble medium" style="top: 70%; right: 30%;"></div>
             <div class="bubble large" style="top: 90%; right: 40%;"></div>
         </div>
-        <h1 class="text-4xl font-bold relative z-10">Welcome to Melissa's Melts</h1>
+        <h1 class="text-3xl font-bold relative z-10">Welcome to Melissa's Melts</h1>
         <p class="text-lg mt-2 relative z-10">Discover our range of handcrafted, natural soaps and melts.</p>
         <button class="custom-button mt-4 relative z-10">View All Products</button>
     </section>
 
     <!-- Featured Products -->
-    <section class="p-10" id="products">
-        <h2 class="text-2xl font-bold mb-8 text-center">Featured Products</h2>
-        <div class="grid grid-cols-1 gap-8">
+    <section class="p-6" id="products">
+        <h2 class="text-2xl font-bold mb-6 text-center">Featured Products</h2>
+        <div class="grid grid-cols-1 gap-6">
             <!-- Example product -->
             <div class="product-card hover:shadow-lg transition-transform duration-300 ease-in-out">
                 <img src="images/sponge.png" alt="Soap Filled Exfoliating Sponge" class="w-full h-48 object-cover rounded-lg">
@@ -423,30 +429,30 @@
     </section>
 
     <!-- Ingredients Section -->
-    <section class="p-10 bg-gray-100">
-        <h2 class="text-2xl font-bold mb-8 text-center">Ingredients</h2>
-        <p class="text-base leading-7 text-center max-w-4xl mx-auto">Vegan, cruelty-free, and hand-crafted in the UK, our soaps and melts are made using the finest natural ingredients, all ethically sourced. Our luxurious range is made with pure essential oils to create uplifting and nurturing scents. Our products are perfect for all skin types and ages, making them a beautiful addition to your daily routine. Browse our shop and find the perfect product for you.</p>
+    <section class="p-6 bg-gray-100">
+        <h2 class="text-2xl font-bold mb-6 text-center">Ingredients</h2>
+        <p class="text-lg leading-7 text-center max-w-2xl mx-auto">Vegan, cruelty-free, and hand-crafted in the UK, our soaps and melts are made using the finest natural ingredients, all ethically sourced. Our luxurious range is made with pure essential oils to create uplifting and nurturing scents. Our products are perfect for all skin types and ages, making them a beautiful addition to your daily routine. Browse our shop and find the perfect product for you.</p>
         <div class="mt-6 text-center">
-            <p class="text-base font-semibold">Free Delivery on orders over £50. UK made and delivered.</p>
+            <p class="text-lg font-semibold">Free Delivery on orders over £50. UK made and delivered.</p>
         </div>
     </section>
 
     <!-- Our Story Section -->
-    <section class="p-10 bg-white">
-        <h2 class="text-2xl font-bold mb-8 text-center">Our Story</h2>
-        <div class="flex flex-col items-center max-w-4xl mx-auto">
-            <p class="text-base leading-7">Melissa's Melts started in 2021 in Whitworth, Rochdale, as a small family business dedicated to crafting high-quality, handmade soaps and melts. Our mission is to provide luxurious, natural products made with the finest ingredients. We believe in sustainability and ethical sourcing, ensuring that our products are good for your skin and the planet. Join us in celebrating the art of natural soap making, crafted with love and care.</p>
+    <section class="p-6 bg-white">
+        <h2 class="text-2xl font-bold mb-6 text-center">Our Story</h2>
+        <div class="flex flex-col items-center max-w-2xl mx-auto">
+            <p class="text-lg leading-7">Melissa's Melts started in 2021 in Whitworth, Rochdale, as a small family business dedicated to crafting high-quality, handmade soaps and melts. Our mission is to provide luxurious, natural products made with the finest ingredients. We believe in sustainability and ethical sourcing, ensuring that our products are good for your skin and the planet. Join us in celebrating the art of natural soap making, crafted with love and care.</p>
             <img src="images/rochdale.avif" alt="Our Story Image" class="w-full h-auto mt-4 rounded-lg shadow-md">
         </div>
     </section>
 
     <!-- Reviews Section -->
-    <section class="p-10 bg-gray-100">
-        <h2 class="text-2xl font-bold mb-8 text-center">Customer Reviews</h2>
-        <div class="grid grid-cols-1 gap-8">
+    <section class="p-6 bg-gray-100">
+        <h2 class="text-2xl font-bold mb-6 text-center">Customer Reviews</h2>
+        <div class="grid grid-cols-1 gap-6">
             <div class="rating-card">
                 <svg class="user-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
                 </svg>
                 <div class="rating-text">
                     <p class="font-bold">John Smith</p>
@@ -464,7 +470,7 @@
             </div>
             <div class="rating-card">
                 <svg class="user-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
                 </svg>
                 <div class="rating-text">
                     <p class="font-bold">Emily Brown</p>
@@ -481,7 +487,7 @@
             </div>
             <div class="rating-card">
                 <svg class="user-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
                 </svg>
                 <div class="rating-text">
                     <p class="font-bold">David Wilson</p>
@@ -499,7 +505,7 @@
             </div>
             <div class="rating-card">
                 <svg class="user-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
                 </svg>
                 <div class="rating-text">
                     <p class="font-bold">Sophia Johnson</p>
@@ -514,47 +520,12 @@
                     <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
                 </div>
             </div>
-            <div class="rating-card">
-                <svg class="user-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                </svg>
-                <div class="rating-text">
-                    <p class="font-bold">Oliver White</p>
-                    <p class="text-sm text-gray-500">Leeds, UK</p>
-                    <p class="star-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </p>
-                    <p>"Excellent quality, highly recommend!"</p>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/EBay_logo.svg" alt="eBay">
-                </div>
-            </div>
-            <div class="rating-card">
-                <svg class="user-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                </svg>
-                <div class="rating-text">
-                    <p class="font-bold">Charlotte Brown</p>
-                    <p class="text-sm text-gray-500">Bristol, UK</p>
-                    <p class="star-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </p>
-                    <p>"Wonderful product, smells amazing!"</p>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Etsy_logo.svg" alt="Etsy">
-                </div>
-            </div>
         </div>
     </section>
 
     <!-- Online Stores Section -->
-    <section class="p-10 bg-white">
-        <h2 class="text-2xl font-bold mb-8 text-center">Online Stores</h2>
+    <section class="p-6 bg-white">
+        <h2 class="text-2xl font-bold mb-6 text-center">Online Stores</h2>
         <div class="online-stores">
             <a href="https://www.amazon.com" target="_blank">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
@@ -569,8 +540,8 @@
     </section>
 
     <!-- Google Maps Section -->
-    <section class="p-10 bg-gray-100">
-        <h2 class="text-2xl font-bold mb-8 text-center">Our Location</h2>
+    <section class="p-6 bg-gray-100">
+        <h2 class="text-2xl font-bold mb-6 text-center">Our Location</h2>
         <div class="flex flex-col items-center">
             <div id="map-container" class="w-full max-w-3xl mb-4">
                 <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d94782.42360144659!2d-2.2074641672028893!3d53.681548246335075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bb3b89b9d5ff5%3A0xd2c85bfc61f8e53f!2sWhitworth%2C%20Rochdale%20OL12%2C%20UK!5e0!3m2!1sen!2s!4v1678232196765!5m2!1sen!2s" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
@@ -581,7 +552,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-r from-pink-500 to-red-500 text-white p-10">
+    <footer class="footer">
         <div class="grid grid-cols-1 gap-8">
             <div>
                 <h3 class="font-bold text-lg mb-2">About Us</h3>
