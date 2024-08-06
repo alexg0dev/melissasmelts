@@ -320,8 +320,11 @@
         }
     </style>
     <script>
-        if (/Mobi|Android/i.test(navigator.userAgent)) {
+        if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+            alert("Mobile-Supported");
             window.location.href = "index1.html";
+        } else {
+            alert("PC-Supported");
         }
     </script>
 </head>
