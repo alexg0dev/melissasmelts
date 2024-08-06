@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Melissa's Melts</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -17,7 +17,7 @@
 
         .hero-section {
             background: linear-gradient(to right, #ffebee, #ffe0e6);
-            padding: 60px 20px;
+            padding: 80px 20px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -254,39 +254,6 @@
             object-fit: contain;
         }
 
-        @media (max-width: 768px) {
-            .hero-section h1 {
-                font-size: 2rem;
-            }
-
-            .hero-section p {
-                font-size: 1rem;
-            }
-
-            .hero-section button {
-                font-size: 0.875rem;
-                padding: 8px 16px;
-            }
-
-            .rating-card .user-icon {
-                width: 40px;
-                height: 40px;
-            }
-
-            .rating-card .rating-text {
-                font-size: 0.875rem;
-            }
-
-            .flex-container {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .flex-container img {
-                height: 48px;
-            }
-        }
-
         #map-container {
             width: 100%;
             max-width: 700px;
@@ -318,8 +285,63 @@
             align-items: center;
             gap: 20px;
         }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #ff6b6b;
+            z-index: 10;
+        }
+
+        .mobile-menu a {
+            padding: 10px 15px;
+            color: white;
+            text-decoration: none;
+            width: 100%;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #ff4d4d;
+        }
+
+        @media (max-width: 768px) {
+            .header-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
     </style>
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('hamburger').addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.toggle('hidden');
+            });
+        });
+
         if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
             alert("Mobile-Supported");
             window.location.href = "index1.html";
@@ -347,10 +369,23 @@
                 <input type="text" placeholder="Search...">
                 <button><i class="fas fa-search"></i></button>
             </div>
-            <button><i class="fas fa-user"></i></button>
-            <button class="cart"><i class="fas fa-shopping-cart"></i></button>
+            <button><i class="fas fa-shopping-cart"></i></button>
+            <div id="hamburger" class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
     </header>
+    <div id="mobile-menu" class="mobile-menu hidden">
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About Us</a>
+        <a href="products.html">Products</a>
+        <a href="notice.html">Notice</a>
+        <a href="faqs.html">FAQs</a>
+        <a href="shipping.html">Shipping Information</a>
+        <a href="returns.html">Returns & Exchanges</a>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero-section relative">
