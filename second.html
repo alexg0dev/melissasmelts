@@ -109,7 +109,7 @@
             background: linear-gradient(to right, #ff6b6b, #ff4d4d);
             padding: 10px 20px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             position: relative;
             z-index: 10;
@@ -119,6 +119,8 @@
             display: flex;
             flex-direction: column;
             cursor: pointer;
+            position: absolute;
+            left: 20px;
             z-index: 20;
         }
 
@@ -133,13 +135,22 @@
         .logo {
             display: flex;
             align-items: center;
+            justify-content: center;
             z-index: 20;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
         }
 
         .cart-icon {
             font-size: 1.5rem;
             color: white;
             cursor: pointer;
+            position: absolute;
+            right: 20px;
+            z-index: 20;
         }
 
         .search-bar {
@@ -168,6 +179,7 @@
             cursor: pointer;
             font-size: 1.25rem;
             color: #ff6b6b;
+            padding: 5px 10px;
         }
 
         .mobile-menu {
@@ -325,6 +337,7 @@
             <div></div>
         </div>
         <div class="logo">
+            <img src="images/logo.png" alt="Melissa's Melts Logo">
             <h1>Melissa's Melts</h1>
         </div>
         <button class="cart-icon"><i class="fas fa-shopping-cart"></i></button>
@@ -333,7 +346,7 @@
     <div id="mobile-menu" class="mobile-menu hidden">
         <a href="index.html">Home</a>
         <a href="products.html">Products</a>
-        <a href="about.html">About</a>
+        <a href="about.html">About Us</a>
         <a href="contact.html">Contact</a>
     </div>
 
@@ -389,6 +402,9 @@
     <section class="p-6 bg-gray-100">
         <h2 class="text-2xl font-bold mb-6 text-center">Ingredients</h2>
         <p class="text-lg leading-7 text-center max-w-2xl mx-auto">Vegan, cruelty-free, and hand-crafted in the UK, our soaps and melts are made using the finest natural ingredients, all ethically sourced. Our luxurious range is made with pure essential oils to create uplifting and nurturing scents. Our products are perfect for all skin types and ages, making them a beautiful addition to your daily routine.</p>
+        <div class="mt-6 text-center">
+            <p class="text-lg font-semibold">Free Delivery on orders over £50. UK made and delivered.</p>
+        </div>
     </section>
 
     <!-- Random Content Below -->
@@ -399,7 +415,46 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div>&copy; 2024 Melissa's Melts. Reg. Company Number: 12345678.</div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="font-bold text-lg mb-2">About Us</h3>
+                <ul>
+                    <li><a href="our-story.html" class="hover:underline">Our Story</a></li>
+                    <li><a href="our-mission.html" class="hover:underline">Our Mission</a></li>
+                    <li><a href="sustainability.html" class="hover:underline">Sustainability</a></li>
+                    <li><a href="testimonials.html" class="hover:underline">Customer Testimonials</a></li>
+                    <li><a href="community.html" class="hover:underline">Community Engagement</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold text-lg mb-2">Customer Service</h3>
+                <ul>
+                    <li><a href="contact.html" class="hover:underline">Contact</a></li>
+                    <li><a href="faqs.html" class="hover:underline">FAQs</a></li>
+                    <li><a href="shipping.html" class="hover:underline">Shipping Information</a></li>
+                    <li><a href="returns.html" class="hover:underline">Returns & Exchanges</a></li>
+                    <li><a href="care-tips.html" class="hover:underline">Product Care Tips</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold text-lg mb-2">Other Information</h3>
+                <ul>
+                    <li><a href="terms-conditions.html" class="hover:underline">Terms & Conditions</a></li>
+                    <li><a href="wholesale-terms.html" class="hover:underline">Wholesale Terms</a></li>
+                    <li><a href="privacy-policy.html" class="hover:underline">Privacy Policy</a></li>
+                    <li><a href="careers.html" class="hover:underline">Careers</a></li>
+                    <li><a href="gift-cards.html" class="hover:underline">Gift Cards</a></li>
+                </ul>
+                <div class="social-icons mt-4 text-center">
+                    <a href="https://facebook.com" target="_blank" class="hover:underline"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="hover:underline"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank" class="hover:underline"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com" target="_blank" class="hover:underline"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://youtube.com" target="_blank" class="hover:underline"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <p class="text-center mt-4">Copyright 2024 Melissa's Melts. Reg. Company Number: 12345678. VAT Number: 87654321.</p>
     </footer>
 </body>
 
