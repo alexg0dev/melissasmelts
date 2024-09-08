@@ -51,16 +51,6 @@
             background-color: #ff4d4d;
         }
 
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-
         .floating-bubbles {
             position: absolute;
             top: 0;
@@ -109,7 +99,7 @@
             background: linear-gradient(to right, #ff6b6b, #ff4d4d);
             padding: 10px 20px;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             position: relative;
             z-index: 10;
@@ -119,8 +109,6 @@
             display: flex;
             flex-direction: column;
             cursor: pointer;
-            position: absolute;
-            left: 20px;
             z-index: 20;
         }
 
@@ -132,45 +120,35 @@
             transition: all 0.3s ease;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 20;
-        }
-
         .logo img {
             height: 40px;
-            margin-right: 10px;
         }
 
         .cart-icon {
             font-size: 1.5rem;
             color: white;
             cursor: pointer;
-            position: absolute;
-            right: 20px;
             z-index: 20;
         }
 
         .search-bar {
             display: flex;
             align-items: center;
-            padding: 5px 10px;
+            padding: 8px 12px;
             background-color: white;
             border-radius: 9999px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
-            margin: 20px auto;
+            width: 90%;
+            margin: 10px auto;
         }
 
         .search-bar input {
             border: none;
             outline: none;
-            padding: 5px 10px;
+            padding: 8px;
             font-size: 1rem;
             flex-grow: 1;
+            border-radius: 9999px;
         }
 
         .search-bar button {
@@ -208,23 +186,6 @@
             background-color: #ff4d4d;
         }
 
-        .rating-card {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .rating-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
         .product-card {
             border-radius: 10px;
             padding: 15px;
@@ -233,11 +194,13 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             background: white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
 
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        .product-card img {
+            max-height: 150px;
+            width: auto;
+            margin: 0 auto;
         }
 
         .custom-button {
@@ -246,16 +209,43 @@
             padding: 10px 20px;
             border-radius: 5px;
             transition: background-color 0.3s ease;
+            display: block;
+            width: fit-content;
+            margin: 10px auto;
         }
 
         .custom-button:hover {
             background-color: #ff4d4d;
         }
 
+        .rating-card {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .rating-card img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            margin-right: 15px;
+        }
+
+        .rating-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
         .footer {
             background: linear-gradient(to right, #ff6b6b, #ff4d4d);
             color: white;
             padding: 20px;
+            text-align: center;
         }
 
         .footer h3 {
@@ -266,14 +256,11 @@
         .footer ul {
             list-style: none;
             padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
+            margin: 0;
         }
 
         .footer ul li {
-            margin-bottom: 5px;
-            flex: 1 1 45%;
+            margin-bottom: 10px;
         }
 
         .footer ul li a {
@@ -283,11 +270,6 @@
 
         .footer ul li a:hover {
             text-decoration: underline;
-        }
-
-        .footer .social-icons {
-            text-align: center;
-            margin-top: 20px;
         }
 
         .footer .social-icons a {
@@ -300,21 +282,57 @@
             color: #ff4d4d;
         }
 
-        @media (min-width: 768px) {
-            .footer ul {
-                flex-direction: row;
+        .location-section iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+        }
+
+        .online-stores {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px 0;
+        }
+
+        .online-stores a img {
+            width: 120px;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 5px 15px;
             }
 
-            .footer ul li {
-                flex: 1 1 20%;
+            .search-bar {
+                width: 100%;
+                padding: 8px;
+            }
+
+            .footer h3 {
+                text-align: center;
+            }
+
+            .product-card img {
+                max-height: 120px;
+            }
+
+            .online-stores {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .online-stores a img {
+                width: 100px;
             }
         }
+
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const hamburger = document.getElementById('hamburger');
             const mobileMenu = document.getElementById('mobile-menu');
-            const searchBar = document.getElementById('search-bar');
 
             hamburger.addEventListener('click', function () {
                 mobileMenu.classList.toggle('hidden');
@@ -339,22 +357,18 @@
         </div>
         <div class="logo">
             <img src="images/logo.png" alt="Melissa's Melts Logo">
-            <h1>Melissa's Melts</h1>
         </div>
         <button class="cart-icon"><i class="fas fa-shopping-cart"></i></button>
     </header>
 
+    <!-- Mobile Menu -->
     <div id="mobile-menu" class="mobile-menu hidden">
-        <a href="index.html">Home</a>
-        <a href="contact.html">Contact</a>
-        <a href="about.html">About Us</a>
-        <a href="products.html">Products</a>
-        <a href="notice.html">Notice</a>
-        <a href="faqs.html">FAQs</a>
-        <a href="shipping.html">Shipping Information</a>
-        <a href="returns.html">Returns & Exchanges</a>
+        <a href="#products">Products</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
     </div>
 
+    <!-- Search Bar -->
     <div id="search-bar" class="search-bar">
         <input type="text" placeholder="Search...">
         <button><i class="fas fa-search"></i></button>
@@ -362,14 +376,6 @@
 
     <!-- Hero Section -->
     <section class="hero-section relative mt-6">
-        <div class="floating-bubbles">
-            <div class="bubble small" style="top: 20%; left: 5%;"></div>
-            <div class="bubble medium" style="top: 50%; left: 10%;"></div>
-            <div class="bubble large" style="top: 80%; left: 15%;"></div>
-            <div class="bubble small" style="top: 30%; right: 5%;"></div>
-            <div class="bubble medium" style="top: 60%; right: 10%;"></div>
-            <div class="bubble large" style="top: 90%; right: 15%;"></div>
-        </div>
         <h1 class="text-3xl font-bold relative z-10">Welcome to Melissa's Melts</h1>
         <p class="text-lg mt-2 relative z-10">Discover our range of handcrafted, natural soaps and melts.</p>
         <button class="custom-button mt-4 relative z-10">View All Products</button>
@@ -379,46 +385,36 @@
     <section class="p-6" id="products">
         <h2 class="text-2xl font-bold mb-6 text-center">Featured Products</h2>
         <div class="grid grid-cols-1 gap-6">
-            <!-- Example product -->
-            <div class="product-card hover:shadow-lg transition-transform duration-300 ease-in-out">
-                <img src="images/sponge.png" alt="Soap Filled Exfoliating Sponge" class="w-full h-48 object-cover rounded-lg">
+            <div class="product-card">
+                <img src="images/sponge.png" alt="Soap Filled Exfoliating Sponge">
                 <h3 class="text-lg font-bold mt-4">Soap Filled Exfoliating Sponge</h3>
                 <p class="mt-2 text-pink-500 font-semibold">In over 30 scents</p>
                 <p class="mt-2">£10.00</p>
-                <button class="custom-button mt-4">Buy Now</button>
+                <button class="custom-button">Buy Now</button>
             </div>
-            <div class="product-card hover:shadow-lg transition-transform duration-300 ease-in-out">
-                <img src="images/scrub.png" alt="Massage Soap" class="w-full h-48 object-cover rounded-lg">
+            <div class="product-card">
+                <img src="images/scrub.png" alt="Massage Soap">
                 <h3 class="text-lg font-bold mt-4">Massage Soap</h3>
                 <p class="mt-2 text-pink-500 font-semibold">20% discount if 2 are bought</p>
                 <p class="mt-2">£12.00</p>
-                <button class="custom-button mt-4">Buy Now</button>
-            </div>
-            <div class="product-card hover:shadow-lg transition-transform duration-300 ease-in-out">
-                <img src="images/spray.png" alt="Room Sprays" class="w-full h-48 object-cover rounded-lg">
-                <h3 class="text-lg font-bold mt-4">Room Sprays</h3>
-                <p class="mt-2 text-pink-500 font-semibold">Almost running out</p>
-                <p class="mt-2">£15.00</p>
-                <button class="custom-button mt-4">Buy Now</button>
+                <button class="custom-button">Buy Now</button>
             </div>
         </div>
     </section>
 
-    <!-- Ingredients Section -->
-    <section class="p-6 bg-gray-100">
-        <h2 class="text-2xl font-bold mb-6 text-center">Ingredients</h2>
-        <p class="text-lg leading-7 text-center max-w-2xl mx-auto">Vegan, cruelty-free, and hand-crafted in the UK, our soaps and melts are made using the finest natural ingredients, all ethically sourced. Our luxurious range is made with pure essential oils to create uplifting and nurturing scents. Our products are perfect for all skin types and ages, making them a beautiful addition to your daily routine. Browse our shop and find the perfect product for you.</p>
-        <div class="mt-6 text-center">
-            <p class="text-lg font-semibold">Free Delivery on orders over £50. UK made and delivered.</p>
-        </div>
-    </section>
-
-    <!-- Our Story Section -->
+    <!-- Online Stores Section -->
     <section class="p-6 bg-white">
-        <h2 class="text-2xl font-bold mb-6 text-center">Our Story</h2>
-        <div class="flex flex-col items-center max-w-2xl mx-auto">
-            <p class="text-lg leading-7">Melissa's Melts started in 2021 in Whitworth, Rochdale, as a small family business dedicated to crafting high-quality, handmade soaps and melts. Our mission is to provide luxurious, natural products made with the finest ingredients. We believe in sustainability and ethical sourcing, ensuring that our products are good for your skin and the planet. Join us in celebrating the art of natural soap making, crafted with love and care.</p>
-            <img src="images/rochdale.avif" alt="Our Story Image" class="w-full h-auto mt-4 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold mb-6 text-center">Online Stores</h2>
+        <div class="online-stores">
+            <a href="https://www.amazon.com" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+            </a>
+            <a href="https://www.ebay.com" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/EBay_logo.svg" alt="eBay">
+            </a>
+            <a href="https://www.etsy.com" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Etsy_logo.svg" alt="Etsy">
+            </a>
         </div>
     </section>
 
@@ -427,9 +423,7 @@
         <h2 class="text-2xl font-bold mb-6 text-center">Customer Reviews</h2>
         <div class="grid grid-cols-1 gap-6">
             <div class="rating-card">
-                <svg class="user-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                </svg>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
                 <div class="rating-text">
                     <p class="font-bold">John Smith</p>
                     <p class="text-sm text-gray-500">London, UK</p>
@@ -441,13 +435,10 @@
                         <i class="fas fa-star"></i>
                     </p>
                     <p>"Amazing product, will definitely buy again!"</p>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
                 </div>
             </div>
             <div class="rating-card">
-                <svg class="user-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                </svg>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/EBay_logo.svg" alt="eBay">
                 <div class="rating-text">
                     <p class="font-bold">Emily Brown</p>
                     <p class="text-sm text-gray-500">Manchester, UK</p>
@@ -458,101 +449,34 @@
                         <i class="fas fa-star"></i>
                     </p>
                     <p>"Great quality, but a bit pricey."</p>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/EBay_logo.svg" alt="eBay">
-                </div>
-            </div>
-            <div class="rating-card">
-                <svg class="user-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                </svg>
-                <div class="rating-text">
-                    <p class="font-bold">David Wilson</p>
-                    <p class="text-sm text-gray-500">Birmingham, UK</p>
-                    <p class="star-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </p>
-                    <p>"Perfect for my sensitive skin."</p>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Etsy_logo.svg" alt="Etsy">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Online Stores Section -->
-    <section class="p-6 bg-white">
-        <h2 class="text-2xl font-bold mb-6 text-center">Online Stores</h2>
-        <div class="flex justify-center gap-8">
-            <a href="https://www.amazon.com" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" width="100">
-            </a>
-            <a href="https://www.ebay.com" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/EBay_logo.svg" alt="eBay" width="100">
-            </a>
-            <a href="https://www.etsy.com" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Etsy_logo.svg" alt="Etsy" width="100">
-            </a>
-        </div>
-    </section>
-
-    <!-- Google Maps Section -->
-    <section class="p-6 bg-gray-100">
+    <!-- Location Section -->
+    <section class="p-6 location-section">
         <h2 class="text-2xl font-bold mb-6 text-center">Our Location</h2>
-        <div class="flex flex-col items-center">
-            <div id="map-container" class="w-full max-w-3xl mb-4">
-                <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d94782.42360144659!2d-2.2074641672028893!3d53.681548246335075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bb3b89b9d5ff5%3A0xd2c85bfc61f8e53f!2sWhitworth%2C%20Rochdale%20OL12%2C%20UK!5e0!3m2!1sen!2s!4v1678232196765!5m2!1sen!2s" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-            <p class="text-center mt-4 text-lg">Our sponges come all the way from a village in Whitworth, OL12, Rochdale.</p>
-            <a href="https://www.google.com/maps/place/Whitworth,+Rochdale+OL12,+UK" target="_blank" class="underline-link mt-2">View on Google Maps</a>
-        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d94782.42360144659!2d-2.2074641672028893!3d53.681548246335075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bb3b89b9d5ff5%3A0xd2c85bfc61f8e53f!2sWhitworth%2C%20Rochdale%20OL12%2C%20UK!5e0!3m2!1sen!2s!4v1678232196765!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
+        <p class="text-center mt-4">Our sponges come all the way from a village in Whitworth, OL12, Rochdale.</p>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-                <h3 class="font-bold text-lg mb-2">About Us</h3>
-                <ul>
-                    <li><a href="our-story.html" class="hover:underline">Our Story</a></li>
-                    <li><a href="our-mission.html" class="hover:underline">Our Mission</a></li>
-                    <li><a href="sustainability.html" class="hover:underline">Sustainability</a></li>
-                    <li><a href="testimonials.html" class="hover:underline">Customer Testimonials</a></li>
-                    <li><a href="community.html" class="hover:underline">Community Engagement</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="font-bold text-lg mb-2">Customer Service</h3>
-                <ul>
-                    <li><a href="contact.html" class="hover:underline">Contact</a></li>
-                    <li><a href="faqs.html" class="hover:underline">FAQs</a></li>
-                    <li><a href="shipping.html" class="hover:underline">Shipping Information</a></li>
-                    <li><a href="returns.html" class="hover:underline">Returns & Exchanges</a></li>
-                    <li><a href="care-tips.html" class="hover:underline">Product Care Tips</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="font-bold text-lg mb-2">Other Information</h3>
-                <ul>
-                    <li><a href="terms-conditions.html" class="hover:underline">Terms & Conditions</a></li>
-                    <li><a href="wholesale-terms.html" class="hover:underline">Wholesale Terms</a></li>
-                    <li><a href="privacy-policy.html" class="hover:underline">Privacy Policy</a></li>
-                    <li><a href="careers.html" class="hover:underline">Careers</a></li>
-                    <li><a href="gift-cards.html" class="hover:underline">Gift Cards</a></li>
-                </ul>
-                <div class="social-icons mt-4 text-center">
-                    <a href="https://facebook.com" target="_blank" class="hover:underline"><i class="fab fa-facebook"></i></a>
-                    <a href="https://twitter.com" target="_blank" class="hover:underline"><i class="fab fa-twitter"></i></a>
-                    <a href="https://instagram.com" target="_blank" class="hover:underline"><i class="fab fa-instagram"></i></a>
-                    <a href="https://linkedin.com" target="_blank" class="hover:underline"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://youtube.com" target="_blank" class="hover:underline"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
+        <h3>About Us</h3>
+        <ul>
+            <li><a href="our-story.html">Our Story</a></li>
+            <li><a href="our-mission.html">Our Mission</a></li>
+            <li><a href="sustainability.html">Sustainability</a></li>
+        </ul>
+        <div class="social-icons mt-4">
+            <a href="https://facebook.com"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
         </div>
-        <p class="text-center mt-4">Copyright 2024 Melissa's Melts. Reg. Company Number: 12345678. VAT Number: 87654321.</p>
+        <p class="mt-4">Copyright 2024 Melissa's Melts. Reg. Company Number: 12345678. VAT Number: 87654321.</p>
     </footer>
+
 </body>
 
 </html>
