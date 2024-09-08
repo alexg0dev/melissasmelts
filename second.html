@@ -51,50 +51,6 @@
             background-color: #ff4d4d;
         }
 
-        .floating-bubbles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 0;
-        }
-
-        .bubble {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 182, 193, 0.6);
-            animation: floatUp 20s infinite ease-in-out;
-        }
-
-        .bubble.small {
-            width: 40px;
-            height: 40px;
-        }
-
-        .bubble.medium {
-            width: 80px;
-            height: 80px;
-        }
-
-        .bubble.large {
-            width: 120px;
-            height: 120px;
-        }
-
-        @keyframes floatUp {
-            0% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateY(-1000px);
-                opacity: 0;
-            }
-        }
-
         .header {
             background: linear-gradient(to right, #ff6b6b, #ff4d4d);
             padding: 10px 20px;
@@ -120,8 +76,14 @@
             transition: all 0.3s ease;
         }
 
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
         .logo img {
             height: 40px;
+            margin-right: 10px;
         }
 
         .cart-icon {
@@ -198,9 +160,8 @@
         }
 
         .product-card img {
-            max-height: 150px;
-            width: auto;
-            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
         }
 
         .custom-button {
@@ -230,15 +191,10 @@
         }
 
         .rating-card img {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             object-fit: contain;
             margin-right: 15px;
-        }
-
-        .rating-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .footer {
@@ -290,8 +246,9 @@
 
         .online-stores {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-evenly;
             padding: 20px 0;
+            gap: 20px;
         }
 
         .online-stores a img {
@@ -304,17 +261,12 @@
                 padding: 5px 15px;
             }
 
-            .search-bar {
-                width: 100%;
-                padding: 8px;
-            }
-
             .footer h3 {
                 text-align: center;
             }
 
             .product-card img {
-                max-height: 120px;
+                max-height: 180px;
             }
 
             .online-stores {
@@ -357,6 +309,7 @@
         </div>
         <div class="logo">
             <img src="images/logo.png" alt="Melissa's Melts Logo">
+            <h1>Melissa's Melts</h1>
         </div>
         <button class="cart-icon"><i class="fas fa-shopping-cart"></i></button>
     </header>
@@ -463,18 +416,31 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <h3>About Us</h3>
-        <ul>
-            <li><a href="our-story.html">Our Story</a></li>
-            <li><a href="our-mission.html">Our Mission</a></li>
-            <li><a href="sustainability.html">Sustainability</a></li>
-        </ul>
-        <div class="social-icons mt-4">
-            <a href="https://facebook.com"><i class="fab fa-facebook"></i></a>
-            <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
-            <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="font-bold text-lg mb-2">About Us</h3>
+                <ul>
+                    <li><a href="our-story.html">Our Story</a></li>
+                    <li><a href="our-mission.html">Our Mission</a></li>
+                    <li><a href="sustainability.html">Sustainability</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold text-lg mb-2">Customer Service</h3>
+                <ul>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="shipping.html">Shipping Information</a></li>
+                    <li><a href="returns.html">Returns & Exchanges</a></li>
+                </ul>
+            </div>
+            <div class="social-icons text-center">
+                <a href="https://facebook.com"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+            </div>
         </div>
-        <p class="mt-4">Copyright 2024 Melissa's Melts. Reg. Company Number: 12345678. VAT Number: 87654321.</p>
+        <p class="text-center mt-4">Copyright 2024 Melissa's Melts. Reg. Company Number: 12345678. VAT Number: 87654321.</p>
     </footer>
 
 </body>
