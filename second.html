@@ -162,6 +162,14 @@
         .product-card img {
             max-width: 100%;
             height: auto;
+            margin-bottom: 10px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
         }
 
         .custom-button {
@@ -337,7 +345,7 @@
     <!-- Featured Products -->
     <section class="p-6" id="products">
         <h2 class="text-2xl font-bold mb-6 text-center">Featured Products</h2>
-        <div class="grid grid-cols-1 gap-6">
+        <div class="product-grid">
             <div class="product-card">
                 <img src="images/sponge.png" alt="Soap Filled Exfoliating Sponge">
                 <h3 class="text-lg font-bold mt-4">Soap Filled Exfoliating Sponge</h3>
@@ -350,6 +358,13 @@
                 <h3 class="text-lg font-bold mt-4">Massage Soap</h3>
                 <p class="mt-2 text-pink-500 font-semibold">20% discount if 2 are bought</p>
                 <p class="mt-2">£12.00</p>
+                <button class="custom-button">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <img src="images/spray.png" alt="Room Sprays">
+                <h3 class="text-lg font-bold mt-4">Room Sprays</h3>
+                <p class="mt-2 text-pink-500 font-semibold">Almost running out</p>
+                <p class="mt-2">£15.00</p>
                 <button class="custom-button">Buy Now</button>
             </div>
         </div>
