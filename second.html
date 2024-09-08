@@ -15,6 +15,7 @@
             overflow-x: hidden;
         }
 
+        /* Hero Section with Floating Bubbles */
         .hero-section {
             background: linear-gradient(to right, #ffebee, #ffe0e6);
             padding: 40px 20px;
@@ -51,6 +52,51 @@
             background-color: #ff4d4d;
         }
 
+        .floating-bubbles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 182, 193, 0.6);
+            animation: floatUp 15s infinite ease-in-out;
+        }
+
+        .bubble.small {
+            width: 30px;
+            height: 30px;
+        }
+
+        .bubble.medium {
+            width: 60px;
+            height: 60px;
+        }
+
+        .bubble.large {
+            width: 100px;
+            height: 100px;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-1000px);
+                opacity: 0;
+            }
+        }
+
+        /* Header */
         .header {
             background: linear-gradient(to right, #ff6b6b, #ff4d4d);
             padding: 10px 20px;
@@ -65,7 +111,6 @@
             display: flex;
             flex-direction: column;
             cursor: pointer;
-            z-index: 20;
         }
 
         .hamburger div {
@@ -73,7 +118,6 @@
             height: 3px;
             background-color: #fff;
             margin: 4px 0;
-            transition: all 0.3s ease;
         }
 
         .logo {
@@ -86,13 +130,45 @@
             margin-right: 10px;
         }
 
+        .logo h1 {
+            font-size: 1.5rem;
+            color: white;
+            margin: 0;
+        }
+
         .cart-icon {
             font-size: 1.5rem;
             color: white;
-            cursor: pointer;
-            z-index: 20;
         }
 
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #ff6b6b;
+            z-index: 10;
+            padding: 10px 0;
+        }
+
+        .mobile-menu a {
+            padding: 10px 15px;
+            color: white;
+            text-decoration: none;
+            width: 100%;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #ff4d4d;
+        }
+
+        /* Search Bar */
         .search-bar {
             display: flex;
             align-items: center;
@@ -122,32 +198,7 @@
             padding: 5px 10px;
         }
 
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background-color: #ff6b6b;
-            z-index: 10;
-            padding: 10px 0;
-        }
-
-        .mobile-menu a {
-            padding: 10px 15px;
-            color: white;
-            text-decoration: none;
-            width: 100%;
-            text-align: center;
-            transition: background-color 0.3s ease;
-        }
-
-        .mobile-menu a:hover {
-            background-color: #ff4d4d;
-        }
-
+        /* Product Section */
         .product-card {
             border-radius: 10px;
             padding: 15px;
@@ -172,6 +223,7 @@
             padding: 20px;
         }
 
+        /* Custom Button */
         .custom-button {
             background-color: #ff6b6b;
             color: white;
@@ -187,24 +239,20 @@
             background-color: #ff4d4d;
         }
 
-        .rating-card {
+        /* Online Stores */
+        .online-stores {
             display: flex;
-            flex-direction: row;
-            align-items: center;
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            justify-content: space-evenly;
+            padding: 20px 0;
+            gap: 20px;
         }
 
-        .rating-card img {
-            width: 60px;
-            height: 60px;
-            object-fit: contain;
-            margin-right: 15px;
+        .online-stores a img {
+            width: 100px;
+            height: auto;
         }
 
+        /* Footer */
         .footer {
             background: linear-gradient(to right, #ff6b6b, #ff4d4d);
             color: white;
@@ -246,24 +294,14 @@
             color: #ff4d4d;
         }
 
+        /* Location Section */
         .location-section iframe {
             width: 100%;
             height: 300px;
             border: 0;
         }
 
-        .online-stores {
-            display: flex;
-            justify-content: space-evenly;
-            padding: 20px 0;
-            gap: 20px;
-        }
-
-        .online-stores a img {
-            width: 120px;
-            height: auto;
-        }
-
+        /* Responsive Styles */
         @media (max-width: 768px) {
             .header {
                 padding: 5px 15px;
@@ -284,11 +322,11 @@
             }
 
             .online-stores a img {
-                width: 100px;
+                width: 80px;
             }
         }
-
     </style>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const hamburger = document.getElementById('hamburger');
@@ -337,6 +375,14 @@
 
     <!-- Hero Section -->
     <section class="hero-section relative mt-6">
+        <div class="floating-bubbles">
+            <div class="bubble small" style="top: 20%; left: 5%;"></div>
+            <div class="bubble medium" style="top: 50%; left: 10%;"></div>
+            <div class="bubble large" style="top: 80%; left: 15%;"></div>
+            <div class="bubble small" style="top: 30%; right: 5%;"></div>
+            <div class="bubble medium" style="top: 60%; right: 10%;"></div>
+            <div class="bubble large" style="top: 90%; right: 15%;"></div>
+        </div>
         <h1 class="text-3xl font-bold relative z-10">Welcome to Melissa's Melts</h1>
         <p class="text-lg mt-2 relative z-10">Discover our range of handcrafted, natural soaps and melts.</p>
         <button class="custom-button mt-4 relative z-10">View All Products</button>
